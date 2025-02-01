@@ -8,7 +8,7 @@ class CardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Card Screen'),
+        title: const Text('HeyBlossom!'),
         centerTitle: true,
       ),
       body: Center(
