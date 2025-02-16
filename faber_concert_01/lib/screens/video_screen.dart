@@ -25,9 +25,9 @@ class VideoScreen extends StatelessWidget {
               YoutubePlayerWidget(videoId: 'gqh2oXaCHMA'),
               const SizedBox(height: 20),
               const Text(
-                '20250201\nDAY6 Concert',
+                '20250201\nI remember, We remember.',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18, color: Colors.white),
+                style: TextStyle(fontSize: 14, color: Colors.white, fontStyle: FontStyle.italic),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
