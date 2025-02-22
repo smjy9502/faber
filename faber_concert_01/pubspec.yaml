@@ -34,7 +34,12 @@ dependencies:
   flutter:
     sdk: flutter
   photo_view: ^0.14.0
+  amplify_flutter: ^0.6.0
+  amplify_auth_cognito: ^0.6.0
+  amplify_storage_s3: ^0.6.0
   dotted_border: ^2.0.0+3
+  image_picker: ^0.8.7
+  shared_preferences: ^2.1.0
   cupertino_icons: ^1.0.8
   youtube_player_flutter: ^9.1.1
   youtube_player_iframe: ^5.2.1

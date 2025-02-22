@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'photo_screen.dart';
 import 'video_screen.dart';
+import 'user_screen.dart';  // 새로 추가
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -16,36 +17,55 @@ class MainScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(height: 360),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(  // Column을 Stack으로 변경
+          children: [
+            Positioned(  // 'My' 버튼 추가
+              top: 40,
+              left: 20,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const UserScreen()),
+                  );
+                },
+                child: Text('My'),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.transparent,
+                ),
+              ),
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  _buildDottedButton('Photo', () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const PhotoScreen()),
-                    );
-                  }),
-                  const SizedBox(width: 20),
-                  _buildDottedButton('Video', () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const VideoScreen()),
-                    );
-                  }),
+                  const SizedBox(height: 640),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildDottedButton('Photo', () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const PhotoScreen()),
+                        );
+                      }),
+                      const SizedBox(width: 30),
+                      _buildDottedButton('Video', () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const VideoScreen()),
+                        );
+                      }),
+                    ],
+                  ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
-
   Widget _buildDottedButton(String text, VoidCallback onPressed) {
     return DottedBorder(
       color: Colors.white,
@@ -67,4 +87,5 @@ class MainScreen extends StatelessWidget {
       ),
     );
   }
+// _buildDottedButton 함수는 그대로 유지
 }
